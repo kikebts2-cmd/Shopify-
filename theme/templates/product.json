@@ -205,6 +205,12 @@
           "settings": {
             "custom_liquid": "{%- assign tipos_ropa = 'Ropa de bebé,Ropa infantil' | split: ',' -%}{%- if tipos_ropa contains product.type -%}<accordion-tab class='product__accordion accordion'><details><summary><span class='summary__title'><span class='accordion__title'>Guía de tallas</span></span>{% render 'icon', icon: 'caret' %}</summary><div class='accordion__content rte'><p>Medidas orientativas. Elige la talla por la <strong>altura</strong> del bebé más que por la edad. Si dudas entre dos tallas, elige la mayor.</p><table style='width:100%;border-collapse:collapse;font-size:1.4rem;'><thead><tr><th style='text-align:left;padding:.6rem;border-bottom:1px solid currentColor;'>Edad</th><th style='text-align:left;padding:.6rem;border-bottom:1px solid currentColor;'>Altura</th><th style='text-align:left;padding:.6rem;border-bottom:1px solid currentColor;'>Peso</th></tr></thead><tbody><tr><td style='padding:.6rem;'>Recién nacido</td><td style='padding:.6rem;'>hasta 56 cm</td><td style='padding:.6rem;'>hasta 4 kg</td></tr><tr><td style='padding:.6rem;'>0-3 meses</td><td style='padding:.6rem;'>56-62 cm</td><td style='padding:.6rem;'>4-6 kg</td></tr><tr><td style='padding:.6rem;'>3-6 meses</td><td style='padding:.6rem;'>62-68 cm</td><td style='padding:.6rem;'>6-7,5 kg</td></tr><tr><td style='padding:.6rem;'>6-9 meses</td><td style='padding:.6rem;'>68-74 cm</td><td style='padding:.6rem;'>7,5-9 kg</td></tr><tr><td style='padding:.6rem;'>9-12 meses</td><td style='padding:.6rem;'>74-80 cm</td><td style='padding:.6rem;'>9-10 kg</td></tr><tr><td style='padding:.6rem;'>12-18 meses</td><td style='padding:.6rem;'>80-86 cm</td><td style='padding:.6rem;'>10-11,5 kg</td></tr><tr><td style='padding:.6rem;'>18-24 meses</td><td style='padding:.6rem;'>86-92 cm</td><td style='padding:.6rem;'>11,5-13 kg</td></tr><tr><td style='padding:.6rem;'>2-3 años</td><td style='padding:.6rem;'>92-98 cm</td><td style='padding:.6rem;'>13-15 kg</td></tr><tr><td style='padding:.6rem;'>3-4 años</td><td style='padding:.6rem;'>98-104 cm</td><td style='padding:.6rem;'>15-17 kg</td></tr><tr><td style='padding:.6rem;'>4-5 años</td><td style='padding:.6rem;'>104-110 cm</td><td style='padding:.6rem;'>17-19 kg</td></tr></tbody></table><p>¿Tienes dudas? <a href='/pages/contactanos-para-mas-informacion-y-consultas-rapidas-contact'>Escríbenos</a> y te ayudamos a elegir.</p></div></details></accordion-tab>{%- endif -%}"
           }
+        },
+        "whatsapp": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "{%- capture wa_msg -%}Hola, tengo una duda sobre: {{ product.title }}{%- endcapture -%}<p class='product__text' style='margin:1rem 0;'><a href='https://wa.me/34630661340?text={{ wa_msg | url_encode }}' target='_blank' rel='noopener' class='link link--underline' style='display:inline-flex;align-items:center;gap:.6rem;'><svg width='20' height='20' viewBox='0 0 24 24' aria-hidden='true' fill='#25D366'><path d='M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .3-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.2-1.6-1.2-3s.7-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.2z'/></svg>¿Dudas con la talla o el envío? Escríbenos por WhatsApp</a></p>"
+          }
         }
       },
       "block_order": [
@@ -219,6 +225,7 @@
         "inventory_status",
         "buy_buttons",
         "devoluciones",
+        "whatsapp",
         "navidad",
         "57973ae1-721a-4722-9e9a-ed71059e2970",
         "guia_tallas",
