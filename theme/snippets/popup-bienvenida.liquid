@@ -65,6 +65,6 @@ if(err){open();return}
 if(get(KS))return;
 var last=parseInt(get(KC)||'0',10);
 if(last&&Date.now()-last<7*864e5)return;
-setTimeout(open,5000);
+var shown=false;function go(){if(shown)return;shown=true;open();window.removeEventListener('scroll',onS)}function onS(){var d=document.documentElement;if((window.scrollY+window.innerHeight)/d.scrollHeight>0.5)go()}window.addEventListener('scroll',onS,{passive:true});setTimeout(go,20000);
 })();
 </script>
