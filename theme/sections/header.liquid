@@ -739,17 +739,17 @@
     {% if section.settings.logo %}
       "logo": {{ section.settings.logo | image_url: width: section.settings.logo.width | prepend: "https:" | json }},
     {% endif %}
-    "sameAs": [
-      {{ settings.social_facebook_link | json }},
-      {{ settings.social_twitter_link | json }},
-      {{ settings.social_pinterest_link | json }},
-      {{ settings.social_instagram_link | json }},
-      {{ settings.social_tiktok_link | json }},
-      {{ settings.social_tumblr_link | json }},
-      {{ settings.social_snapchat_link | json }},
-      {{ settings.social_youtube_link | json }},
-      {{ settings.social_vimeo_link | json }}
-    ],
+    {%- liquid
+      assign social_raw = settings.social_facebook_link | append: '§' | append: settings.social_twitter_link | append: '§' | append: settings.social_pinterest_link | append: '§' | append: settings.social_instagram_link | append: '§' | append: settings.social_tiktok_link | append: '§' | append: settings.social_tumblr_link | append: '§' | append: settings.social_snapchat_link | append: '§' | append: settings.social_youtube_link | append: '§' | append: settings.social_vimeo_link | split: '§'
+      assign social_links = ''
+      for link in social_raw
+        if link != blank
+          assign social_links = social_links | append: link | append: '§'
+        endif
+      endfor
+      assign social_links = social_links | split: '§'
+    -%}
+    "sameAs": {{ social_links | json }},
     "url": {{ request.origin | append: page.url | json }}
   }
 </script>
