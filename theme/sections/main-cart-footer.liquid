@@ -205,6 +205,7 @@
                 {{ 'sections.cart.checkout' | t }}
               </button>
             </div>
+            {%- if cart != empty -%}{% render 'cart-trust-points' %}{%- endif -%}
 
             {%- if additional_checkout_buttons and block.settings.show_dynamic_checkout -%}
               <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
